@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';
-import App from './App';
-import Read from './read';
+import App from './components/App';
+import Read from './crud/read.js';
+import Create from './crud/create.js';
 
 Read();
+Create();
 
 ReactDOM.render(
   <React.StrictMode>

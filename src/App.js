@@ -21,14 +21,26 @@ function App() {
   );
 }
 
-const tbody = document.querySelector('.tasks');
-const xhttp = new XMLHttpRequest();
+document.addEventListener("DOMContentLoaded", function () {
+  const tbody = document.querySelector('.tasks');
+  const xhttp = new XMLHttpRequest();
 
-xhttp.onload = function () {
-  console.log(JSON.parse(this.responseText));
-}
+  xhttp.onload = function () {
+    const tasks = JSON.parse(this.responseText);
 
-xhttp.open("GET", "http://localhost:8000/api/tasks/all");
-xhttp.send();
+    tasks.forEach(task => {
+      tbody.innerHTML += 
+        `<tr>
+          <td>${task.title}</td>
+          <td>${task.content}</td>
+          <td>${task.created.date}</td>
+        </tr>`;
+    });
+  }
+
+  xhttp.open("GET", "http://localhost:8000/api/tasks/all");
+  xhttp.send();
+
+});
 
 export default App;

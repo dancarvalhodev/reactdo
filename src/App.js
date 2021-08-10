@@ -1,3 +1,5 @@
+import NewTask from './NewTask';
+
 function App() {
   return (
     <div className="container">
@@ -5,7 +7,7 @@ function App() {
         <div className="col-sm-12 text-center">
           <h1>Welcome to Reactdo</h1>
           <hr></hr>
-          <table className="table">
+          <table className="table table-responsive">
             <thead>
               <tr>
                 <th>Title</th>
@@ -15,6 +17,8 @@ function App() {
             </thead>
             <tbody className="tasks"></tbody>
           </table>
+          <hr></hr>
+          <NewTask />
         </div>
       </div>
     </div>
@@ -22,25 +26,24 @@ function App() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  const tbody = document.querySelector('.tasks');
+  const newTaskButton = document.querySelector('.newTask');
   const xhttp = new XMLHttpRequest();
 
-  xhttp.onload = function () {
-    const tasks = JSON.parse(this.responseText);
+  newTaskButton.addEventListener('click', (event) => {
+    event.preventDefault();
 
-    tasks.forEach(task => {
-      tbody.innerHTML += 
-        `<tr>
-          <td>${task.title}</td>
-          <td>${task.content}</td>
-          <td>${task.created.date}</td>
-        </tr>`;
-    });
-  }
+    let title = document.querySelector('.title').value;
+    let content = document.querySelector('.content').value;
 
-  xhttp.open("GET", "http://localhost:8000/api/tasks/all");
-  xhttp.send();
+    xhttp.onload = function () {
+        console.log((this.response));
+    }
 
+    xhttp.open("POST", `http://localhost:8000/api/tasks/create?title=${title}&content=${content}`);
+    xhttp.send();
+  });
+  
 });
+
 
 export default App;

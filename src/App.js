@@ -25,7 +25,7 @@ const tbody = document.querySelector('.tasks');
 const xhttp = new XMLHttpRequest();
 
 xhttp.onload = function () {
-  console.log(JSON.stringify(this.responseText));
+  console.log(JSON.parse(this.responseText));
 }
 
 xhttp.open("GET", "http://localhost:8000/api/tasks/all");

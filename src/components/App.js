@@ -1,5 +1,3 @@
-import NewTask from './NewTask';
-
 function App() {
   return (
     <div className="container">
@@ -20,7 +18,7 @@ function App() {
             <tbody className="tasks"></tbody>
           </table>
           <hr></hr>
-          <NewTask />
+          <button type="submit" className="btn btn-primary newTask">Add Task</button>
         </div>
       </div>
     </div>

@@ -41,7 +41,6 @@ function Read() {
             });
         }
 
-
         xhttp.open("GET", "http://localhost:8000/api/tasks/all");
         xhttp.send();
     });

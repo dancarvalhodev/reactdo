@@ -18,7 +18,7 @@ function Read() {
                     <td style="display: none;">${task.id}</td>
                     <td>${task.title}</td>
                     <td>${task.content}</td>
-                    <td>${dayjs(new Date(task.created.date)).format('DD/MM/YYYY HH:MM')}</td>
+                    <td>${dayjs(new Date(task.created.date)).format('DD/MM/YY HH:MM')}</td>
                     <td>
                         <button class='btn btn-outline-info edit'>Edit</button>
                         <button class='btn btn-outline-danger delete'>Delete</button>

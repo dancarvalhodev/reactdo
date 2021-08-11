@@ -1,4 +1,4 @@
-const URL_API = 'http://localhost:8000';
+const URL_API = 'https://api.reactdo.app';
 
 
 export default URL_API;

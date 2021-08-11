@@ -1,5 +1,8 @@
 import Edit from './edit';
 import Delete from './delete';
+import dayjs from 'dayjs';
+//import { MdDeleteForever } from "react-icons/md";
+//import { MdCreate } from "react-icons/md";
 
 function Read() {
     document.addEventListener("DOMContentLoaded", function () {
@@ -12,13 +15,13 @@ function Read() {
             tasks.forEach(task => {
                 tbody.innerHTML +=
                     `<tr>
-                    <td>${task.id}</td>
+                    <td style="display: none;">${task.id}</td>
                     <td>${task.title}</td>
                     <td>${task.content}</td>
-                    <td>${task.created.date}</td>
+                    <td>${dayjs(new Date(task.created.date)).format('DD/MM/YYYY HH:MM')}</td>
                     <td>
-                        <button class='btn btn-info text-white edit'>Edit</button>
-                        <button class='btn btn-danger delete'>Delete</button>
+                        <button class='btn btn-outline-info edit'>Edit</button>
+                        <button class='btn btn-outline-danger delete'>Delete</button>
                     </td>
                 </tr>`;
             });

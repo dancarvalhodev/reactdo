@@ -1,3 +1,5 @@
+import { MdAdd } from "react-icons/md";
+
 function App() {
   return (
     <div className="container">
@@ -8,7 +10,7 @@ function App() {
           <table className="table table-responsive">
             <thead>
               <tr>
-                <th>Id</th>
+                <th className="hide">Id</th>
                 <th>Title</th>
                 <th>Content</th>
                 <th>Date</th>
@@ -17,8 +19,7 @@ function App() {
             </thead>
             <tbody className="tasks"></tbody>
           </table>
-          <hr></hr>
-          <button type="submit" className="btn btn-primary newTask">Add Task</button>
+          <button type="submit" className="newTask btn btn-outline-primary">< MdAdd/></button>
         </div>
       </div>
     </div>

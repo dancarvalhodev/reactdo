@@ -1,4 +1,5 @@
 import Swal from 'sweetalert2'
+import URL_API from '../confg/config';
 
 function Delete(id) {
     Swal.fire({
@@ -26,7 +27,7 @@ function Delete(id) {
                 }
             }
 
-            xhttp.open("DELETE", `http://localhost:8000/api/tasks/delete/${id}`);
+            xhttp.open("DELETE", `${URL_API}/api/tasks/delete/${id}`);
             xhttp.setRequestHeader("Access-Control-Allow-Origin", "*")
             xhttp.send();
         }

@@ -1,4 +1,5 @@
 import Swal from 'sweetalert2'
+import URL_API from '../confg/config';
 
 function Create() {
     document.addEventListener("DOMContentLoaded", function () {
@@ -31,7 +32,7 @@ function Create() {
                         }
                     }
                 
-                    xhttp.open("POST", `http://localhost:8000/api/tasks/create?title=${title}&content=${content}`);
+                    xhttp.open("POST", `${URL_API}/api/tasks/create?title=${title}&content=${content}`);
                     xhttp.send();
                 }
             })

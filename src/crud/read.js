@@ -1,6 +1,7 @@
 import Edit from './edit';
 import Delete from './delete';
 import dayjs from 'dayjs';
+import URL_API from '../confg/config';
 
 function setButtonsAction(){
     const editButton = Array.from(document.querySelectorAll('.edit'));
@@ -46,7 +47,7 @@ function Read() {
             setButtonsAction();
         }
 
-        xhttp.open("GET", "http://localhost:8000/api/tasks/all");
+        xhttp.open("GET", `${URL_API}/api/tasks/all`);
         xhttp.send();
     });
 }

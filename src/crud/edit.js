@@ -1,4 +1,5 @@
 import Swal from 'sweetalert2'
+import URL_API from '../confg/config';
 
 function Edit(id) {
     const xhttp = new XMLHttpRequest();
@@ -37,7 +38,7 @@ function Edit(id) {
         })
     }
 
-    xhttp.open("GET", `http://localhost:8000/api/tasks/task/${id}`);
+    xhttp.open("GET", `${URL_API}/api/tasks/task/${id}`);
     xhttp.send();
 
 

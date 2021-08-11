@@ -10,9 +10,11 @@ function App() {
           <table className="table table-responsive">
             <thead>
               <tr>
+                <th>Id</th>
                 <th>Title</th>
                 <th>Content</th>
                 <th>Date</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody className="tasks"></tbody>

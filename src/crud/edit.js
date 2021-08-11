@@ -7,10 +7,11 @@ function Edit(id) {
         const response = JSON.parse(this.response);
 
         Swal.fire({
+            heightAuto: 'false',
             title: 'Edit a task',
             html:
-                `<input id="swal-input1" value="${response.title}" class="swal2-input">` +
-                `<input id="swal-input2" value="${response.content}" class="swal2-input">`,
+                `<input style="width: 70%;" id="swal-input1" value="${response.title}" class="swal2-input">` +
+                `<input style="width: 70%;" id="swal-input2" value="${response.content}" class="swal2-input">`,
             focusConfirm: false,
             preConfirm: () => {
                 const newTitle = document.getElementById('swal-input1').value;

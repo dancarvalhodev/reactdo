@@ -1,5 +1,7 @@
 import Navbar from "./Navbar";
-import { MdAdd } from "react-icons/md";
+import Separator from "./Separator";
+import InfoAlert from "./InfoAlert";
+import Table from "./Table";
 
 function App() {
   return (
@@ -8,19 +10,13 @@ function App() {
       <div className="container">
         <div className="row">
           <div className="col-sm-12 text-center">
-            <table className="table table-responsive">
-              <thead>
-                <tr>
-                  <th className="hide">Id</th>
-                  <th>Title</th>
-                  <th>Content</th>
-                  <th>Date</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody className="tasks"></tbody>
-            </table>
-            <button className="newTask">< MdAdd /></button>
+            < Separator />
+            <h1>Welcome</h1>
+            <p>Click in the button below to add a task</p>
+            <button className="newTask">New task</button>
+            < Separator />
+            < InfoAlert />
+            < Table />
           </div>
         </div>
       </div>

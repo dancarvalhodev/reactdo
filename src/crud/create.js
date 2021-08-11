@@ -7,10 +7,11 @@ function Create() {
 
         newTaskButton.addEventListener('click', () => {
             Swal.fire({
+                heightAuto: 'false',
                 title: 'Create a task',
                 html:
-                    `<input id="swal-input1" placeholder="Task Title" class="swal2-input">` +
-                    `<input id="swal-input2" placeholder="Task Content" class="swal2-input">`,
+                    `<input style="width: 70%;" id="swal-input1" placeholder="Task Title" class="swal2-input">` +
+                    `<input style="width: 70%;" id="swal-input2" placeholder="Task Content" class="swal2-input">`,
                 focusConfirm: false,
                 preConfirm: () => {
                     let title = document.getElementById('swal-input1').value;

@@ -32,7 +32,7 @@ function Edit(id) {
                     }
                 }
             
-                xhttp.open("PATCH", `http://localhost:8000/api/tasks/update/${id}?title=${newTitle}&content=${newContent}`);
+                xhttp.open("PATCH", `${URL_API}/api/tasks/update/${id}?title=${newTitle}&content=${newContent}`);
                 xhttp.send();
             }
         })

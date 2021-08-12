@@ -45,13 +45,13 @@ function Read() {
             } else {
                 tasks.forEach(task => {
                     dayjs.extend(customParseFormat);
-                    console.log(dayjs(new Date(task.created.date.replace(/\s/, 'T'))));
+                    console.log(dayjs(new Date(task.created.date.replace(/\s/, 'T'))).format('DD/MM/YYYY HH:mm'));
                     tbody.innerHTML +=
                         `<tr>
                         <td style="display: none;">${task.id}</td>
                         <td>${task.title.slice(0, 8)}..</td>
                         <td>${task.content.slice(0, 4)}..</td>
-                        <td>${dayjs(new Date(task.created.date.replace(/\s/, 'T')))}</td>
+                        <td>${dayjs(new Date(task.created.date.replace(/\s/, 'T'))).format('DD/MM/YYYY HH:mm')}</td>
                         <td>
                             <button style="width: 80px; margin: 2px;" class='btn btn-info text-white edit'>Edit</button>
                             <button style="width: 80px; margin: 2px;" class='btn btn-warning text-white view'>View</button>

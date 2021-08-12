@@ -17,23 +17,31 @@ function Create() {
                 preConfirm: () => {
                     let title = document.getElementById('swal-input1').value;
                     let content = document.getElementById('swal-input2').value;
-    
-                    xhttp.onload = function () {
-                        const response2 = JSON.parse(this.response);
-    
-                        if (response2.status === "Task Created") {
-                            Swal.fire(
-                                'Created!',
-                                'Your task has been created.',
-                                'success'
-                            ).then(() => {
-                                window.location.reload();
-                            });
+
+                    if (title === '' || content === '') {
+                        Swal.fire(
+                            'Attention',
+                            'Title or Content cannot be empty',
+                            'warning'
+                        )
+                    } else {
+                        xhttp.onload = function () {
+                            const response2 = JSON.parse(this.response);
+
+                            if (response2.status === "Task Created") {
+                                Swal.fire(
+                                    'Created!',
+                                    'Your task has been created.',
+                                    'success'
+                                ).then(() => {
+                                    window.location.reload();
+                                });
+                            }
                         }
+
+                        xhttp.open("POST", `${URL_API}/api/tasks/create?title=${title}&content=${content}`);
+                        xhttp.send();
                     }
-                
-                    xhttp.open("POST", `${URL_API}/api/tasks/create?title=${title}&content=${content}`);
-                    xhttp.send();
                 }
             })
         });

@@ -1,5 +1,11 @@
 # Reactdo
 Basic to do app build with React for frontend and Symfony for backend.
+#### Try it into [here](https://reactdo.app) 
+
+**ATTENTION**
+This page is only for testing, in a near future I will make a login and register for the tasks turn into more personal and secure information. Please be carefull with kind of personal information you put into site because anyone can see the task.
+
+
 This repository contains only frontend structure for turn the maintaince more easier.
 
 # How to run?

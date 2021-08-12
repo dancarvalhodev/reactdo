@@ -45,7 +45,6 @@ function Read() {
             } else {
                 tasks.forEach(task => {
                     dayjs.extend(customParseFormat);
-                    console.log(dayjs(new Date(task.created.date.replace(/\s/, 'T'))).format('DD/MM/YYYY HH:mm'));
                     tbody.innerHTML +=
                         `<tr>
                         <td style="display: none;">${task.id}</td>

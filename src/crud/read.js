@@ -1,16 +1,25 @@
 import Edit from './edit';
+import View from './view';
 import Delete from './delete';
 import dayjs from 'dayjs';
 import URL_API from '../confg/config';
 
 function setButtonsAction() {
     const editButton = Array.from(document.querySelectorAll('.edit'));
+    const viewButton = Array.from(document.querySelectorAll('.view'));
     const deleteButton = Array.from(document.querySelectorAll('.delete'));
 
     editButton.forEach((button) => {
         button.addEventListener('click', () => {
             let id = button.parentElement.parentElement.firstElementChild.textContent;
             Edit(id);
+        });
+    });
+
+    viewButton.forEach((button) => {
+        button.addEventListener('click', () => {
+            let id = button.parentElement.parentElement.firstElementChild.textContent;
+            View(id);
         });
     });
 
@@ -37,11 +46,12 @@ function Read() {
                     tbody.innerHTML +=
                         `<tr>
                         <td style="display: none;">${task.id}</td>
-                        <td>${task.title}</td>
-                        <td>${task.content}</td>
-                        <td>${dayjs(new Date(task.created.date)).format('DD/MM/YY HH:mm')}</td>
+                        <td>${task.title.slice(0, 5)}...</td>
+                        <td>${task.content.slice(0, 4)}...</td>
+                        <td>${dayjs(new Date(task.created.date)).format('DD/MM/YYYY HH:mm')}</td>
                         <td>
                             <button style="width: 80px; margin: 2px;" class='btn btn-info text-white edit'>Edit</button>
+                            <button style="width: 80px; margin: 2px;" class='btn btn-warning text-white view'>View</button>
                             <button style="width: 80px; margin: 2px;" class='btn btn-danger delete'>Delete</button>
                         </td>
                     </tr>`;

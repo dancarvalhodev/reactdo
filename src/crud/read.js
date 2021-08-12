@@ -2,6 +2,8 @@ import Edit from './edit';
 import View from './view';
 import Delete from './delete';
 import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat'
+
 import URL_API from '../confg/config';
 
 function setButtonsAction() {
@@ -43,12 +45,15 @@ function Read() {
                 tbody.innerHTML += `<tr><td colspan=4><div class="alert alert-danger" role="alert">No tasks found</div></td></tr>`;
             } else {
                 tasks.forEach(task => {
+                    dayjs.extend(customParseFormat);
+                    console.log(dayjs(new Date(task.created.date)).format('DD/MM/YYYY HH:mm').replace('-', "/"));
+                    console.log(dayjs(new Date(task.created.date)).format("YYYY-MM-DD HH:mm:ss").replace('-', "/"));
                     tbody.innerHTML +=
                         `<tr>
                         <td style="display: none;">${task.id}</td>
                         <td>${task.title.slice(0, 8)}..</td>
                         <td>${task.content.slice(0, 4)}..</td>
-                        <td>${dayjs(new Date(task.created.date)).format('DD/MM/YYYY HH:mm').replace('-', "/")}</td>
+                        <td>${dayjs(new Date(task.created.date)).format("YYYY-MM-DD HH:mm:ss").replace('-', "/")}</td>
                         <td>
                             <button style="width: 80px; margin: 2px;" class='btn btn-info text-white edit'>Edit</button>
                             <button style="width: 80px; margin: 2px;" class='btn btn-warning text-white view'>View</button>

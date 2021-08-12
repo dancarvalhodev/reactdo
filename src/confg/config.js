@@ -1,4 +1,4 @@
-const ENV = 'dev';
+const ENV = 'prod';
 let URL_API = '';
 
 if (ENV === 'dev') {

@@ -3,6 +3,7 @@ import View from './view';
 import Delete from './delete';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat'
+import timezone from 'dayjs/plugin/timezone'
 import URL_API from '../confg/config';
 
 function setButtonsAction() {
@@ -45,12 +46,16 @@ function Read() {
             } else {
                 tasks.forEach(task => {
                     dayjs.extend(customParseFormat);
+                    dayjs.extend(timezone);
+                    dayjs.tz.setDefault("America/Sao_Paulo");
+
+                    let date = dayjs(new Date(task.created.date.replace(/\s/, 'T'))).format('DD/MM/YY HH:mm');
                     tbody.innerHTML +=
                         `<tr>
                         <td style="display: none;">${task.id}</td>
                         <td>${task.title.slice(0, 8)}..</td>
                         <td>${task.content.slice(0, 4)}..</td>
-                        <td>${dayjs(new Date(task.created.date.replace(/\s/, 'T'))).format('DD/MM/YYYY HH:mm')}</td>
+                        <td>${date}</td>
                         <td>
                             <button style="width: 80px; margin: 2px;" class='btn btn-info text-white edit'>Edit</button>
                             <button style="width: 80px; margin: 2px;" class='btn btn-warning text-white view'>View</button>

@@ -3,7 +3,7 @@ import Delete from './delete';
 import dayjs from 'dayjs';
 import URL_API from '../confg/config';
 
-function setButtonsAction(){
+function setButtonsAction() {
     const editButton = Array.from(document.querySelectorAll('.edit'));
     const deleteButton = Array.from(document.querySelectorAll('.delete'));
 
@@ -30,21 +30,25 @@ function Read() {
         xhttp.onload = function () {
             const tasks = JSON.parse(this.responseText);
 
-            tasks.forEach(task => {
-                tbody.innerHTML +=
-                `<tr>
-                    <td style="display: none;">${task.id}</td>
-                    <td>${task.title}</td>
-                    <td>${task.content}</td>
-                    <td>${dayjs(new Date(task.created.date)).format('DD/MM/YY HH:mm')}</td>
-                    <td>
-                        <button style="width: 80px; margin: 2px;" class='btn btn-info text-white edit'>Edit</button>
-                        <button style="width: 80px; margin: 2px;" class='btn btn-danger delete'>Delete</button>
-                    </td>
-                </tr>`;
-            });
+            if (Array.from(tasks).length === 0) {
+                tbody.innerHTML += `<tr><td colspan=4><div class="alert alert-danger" role="alert">No tasks found</div></td></tr>`;
+            } else {
+                tasks.forEach(task => {
+                    tbody.innerHTML +=
+                        `<tr>
+                        <td style="display: none;">${task.id}</td>
+                        <td>${task.title}</td>
+                        <td>${task.content}</td>
+                        <td>${dayjs(new Date(task.created.date)).format('DD/MM/YY HH:mm')}</td>
+                        <td>
+                            <button style="width: 80px; margin: 2px;" class='btn btn-info text-white edit'>Edit</button>
+                            <button style="width: 80px; margin: 2px;" class='btn btn-danger delete'>Delete</button>
+                        </td>
+                    </tr>`;
+                });
 
-            setButtonsAction();
+                setButtonsAction();
+            }
         }
 
         xhttp.open("GET", `${URL_API}/api/tasks/all`);

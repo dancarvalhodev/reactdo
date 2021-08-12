@@ -1,5 +1,6 @@
 # Reactdo
 Basic to do app build with React for frontend and Symfony for backend.
+This repository contains only frontend structure for turn the maintaince more easier.
 
 # How to run?
 1. Modify the config file into path `src/confg/config.js` and change the ENV from dev to prod.

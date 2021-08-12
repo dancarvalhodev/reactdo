@@ -46,8 +46,8 @@ function Read() {
                     tbody.innerHTML +=
                         `<tr>
                         <td style="display: none;">${task.id}</td>
-                        <td>${task.title.slice(0, 5)}...</td>
-                        <td>${task.content.slice(0, 4)}...</td>
+                        <td>${task.title.slice(0, 8)}..</td>
+                        <td>${task.content.slice(0, 4)}..</td>
                         <td>${dayjs(new Date(task.created.date)).format('DD/MM/YYYY HH:mm')}</td>
                         <td>
                             <button style="width: 80px; margin: 2px;" class='btn btn-info text-white edit'>Edit</button>

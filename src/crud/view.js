@@ -19,8 +19,6 @@ function View(id) {
             showCancelButton: false,
             focusConfirm: false,
           })
-
-        console.log(response);
     }
 
     xhttp.open("GET", `${URL_API}/api/tasks/task/${id}`);
